@@ -1,231 +1,197 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>LomboQuest – Privacy Policy</title>
-<meta name="description" content="LomboQuest privacy policy: all your data stays on your phone.">
+<title>LomboQuest</title>
+<meta name="description" content="LomboQuest : des exercices doux pour le dos, en mode quête quotidienne. Gratuit, sans pub, sans compte.">
+<link rel="icon" href="img/icone.png">
 <style>
   :root {
-    --bg: #f6f4ef; --card: #ffffff; --text: #1f2328; --muted: #5b616b;
-    --accent: #c0392b; --border: #e3dfd6;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root { --bg: #14161a; --card: #1d2026; --text: #e8e6e3; --muted: #a2a8b3; --accent: #e5735f; --border: #2c3038; }
+    --bg: #14171F; --bg2: #1B2030; --card: #1F2536; --line: #2C3448;
+    --gold: #D9A93E; --text: #EDE3CC; --muted: #A9A595; --blue: #28497D;
   }
   * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   body { margin: 0; background: var(--bg); color: var(--text);
          font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
-  main { max-width: 760px; margin: 0 auto; padding: 24px 16px 48px; }
-  header h1 { margin: 0 0 4px; font-size: 1.8rem; }
-  header p { margin: 0; color: var(--muted); }
-  nav { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0; }
-  nav button { border: 1px solid var(--border); background: var(--card); color: var(--text);
-               padding: 6px 14px; border-radius: 999px; cursor: pointer; font: inherit; }
-  nav button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
-  section.lang { display: none; background: var(--card); border: 1px solid var(--border);
-                 border-radius: 14px; padding: 8px 22px 20px; }
-  section.lang.on { display: block; }
-  h2 { font-size: 1.15rem; margin: 22px 0 6px; }
-  ul { padding-left: 22px; margin: 6px 0; }
-  a { color: var(--accent); }
-  .date { color: var(--muted); font-size: .9rem; }
+  a { color: var(--gold); }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+
+  /* Barre du haut */
+  .top { display: flex; justify-content: flex-end; gap: 6px; padding: 14px 0; flex-wrap: wrap; }
+  .top button { background: transparent; color: var(--muted); border: 1px solid var(--line);
+                border-radius: 999px; padding: 4px 12px; font: inherit; font-size: 14px; cursor: pointer; }
+  .top button[aria-pressed="true"] { background: var(--gold); border-color: var(--gold); color: var(--bg); font-weight: 600; }
+
+  /* En-tête */
+  .hero { display: flex; align-items: center; gap: 32px; padding: 32px 0 48px; }
+  .hero img { width: 140px; height: 140px; border-radius: 32px; flex: none;
+              box-shadow: 0 12px 40px rgba(0,0,0,.5); }
+  .hero h1 { margin: 0; font-size: clamp(40px, 7vw, 64px); line-height: 1.05; color: var(--gold); letter-spacing: -1px; }
+  .hero .tag { margin: 10px 0 6px; font-size: clamp(18px, 2.6vw, 24px); font-weight: 600; }
+  .hero .intro { margin: 0 0 18px; color: var(--muted); max-width: 560px; }
+  .pills { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .badge { background: var(--bg2); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; font-size: 14px; }
+  .cta { background: var(--gold); color: var(--bg); border-radius: 999px; padding: 8px 18px; font-weight: 700; font-size: 15px; }
+
+  h2 { font-size: 24px; margin: 0 0 18px; }
+
+  /* Captures */
+  .shots { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+           padding: 4px 4px 18px; margin: 0 -4px; }
+  .shots img { width: 230px; height: auto; flex: none; border-radius: 18px; scroll-snap-align: start;
+               box-shadow: 0 8px 28px rgba(0,0,0,.45); }
+  .shots::-webkit-scrollbar { height: 8px; }
+  .shots::-webkit-scrollbar-thumb { background: var(--line); border-radius: 4px; }
+
+  /* Fonctionnalités */
+  .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin: 48px 0; }
+  .feat { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px; }
+  .feat .ico { font-size: 26px; }
+  .feat h3 { margin: 6px 0 4px; font-size: 18px; color: var(--gold); }
+  .feat p { margin: 0; color: var(--muted); font-size: 15px; }
+
+  .warn { background: var(--bg2); border-left: 4px solid var(--gold); border-radius: 8px;
+          padding: 12px 16px; color: var(--muted); font-size: 15px; }
+
+  footer { border-top: 1px solid var(--line); margin-top: 48px; padding: 24px 0 40px;
+           display: flex; flex-wrap: wrap; gap: 10px 24px; align-items: center; color: var(--muted); font-size: 14px; }
+  footer a { text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  footer .langs { flex-basis: 100%; }
+
+  @media (max-width: 640px) {
+    .hero { flex-direction: column; text-align: center; gap: 18px; padding-top: 12px; }
+    .hero img { width: 110px; height: 110px; border-radius: 26px; }
+    .hero .intro { margin-left: auto; margin-right: auto; }
+    .pills { justify-content: center; }
+    .shots img { width: 200px; }
+  }
 </style>
 </head>
 <body>
-<main>
-<header>
-  <h1>LomboQuest</h1>
-  <p>Privacy Policy · Politique de confidentialité · Политика конфиденциальности · Datenschutzerklärung</p>
-</header>
+<div class="wrap">
+  <nav class="top" aria-label="Langue">
+    <button data-l="fr">Français</button>
+    <button data-l="en">English</button>
+    <button data-l="de">Deutsch</button>
+    <button data-l="ru">Русский</button>
+  </nav>
 
-<nav>
-  <button data-l="fr">Français</button>
-  <button data-l="en">English</button>
-  <button data-l="ru">Русский</button>
-  <button data-l="de">Deutsch</button>
-</nav>
+  <section class="hero">
+    <img src="img/icone.png" alt="LomboQuest">
+    <div>
+      <h1>LomboQuest</h1>
+      <p class="tag" data-t="tag"></p>
+      <p class="intro" data-t="intro"></p>
+      <div class="pills">
+        <span class="cta" data-t="cta"></span>
+        <span class="badge" data-t="badge"></span>
+      </div>
+    </div>
+  </section>
 
-<!-- ===================== FRANÇAIS ===================== -->
-<section class="lang" id="fr" lang="fr">
-  <p class="date">Dernière mise à jour : 28 octobre 2026</p>
-  <h2>En bref</h2>
-  <p>LomboQuest ne collecte aucune donnée. Pas de compte, pas de publicité, pas de traceur, pas de statistiques d'utilisation. Tout ce que tu saisis reste sur ton téléphone.</p>
+  <h2 data-t="shots"></h2>
+  <div class="shots" id="shots"></div>
 
-  <h2>Données enregistrées sur ton téléphone</h2>
-  <ul>
-    <li>Ta progression : exercices réalisés, XP, série, trophées, quêtes.</li>
-    <li>Ton journal de douleur et ton suivi du poids, si tu les utilises.</li>
-    <li>Tes réglages : rappels, langue, liste d'exercices.</li>
-  </ul>
-  <p>Ces données sont stockées uniquement dans l'application, sur ton appareil. Elles ne sont jamais envoyées au développeur ni à un tiers.</p>
+  <div class="features">
+    <div class="feat"><div class="ico">🧍</div><h3 data-t="f1t"></h3><p data-t="f1d"></p></div>
+    <div class="feat"><div class="ico">🏆</div><h3 data-t="f2t"></h3><p data-t="f2d"></p></div>
+    <div class="feat"><div class="ico">🛌</div><h3 data-t="f3t"></h3><p data-t="f3d"></p></div>
+    <div class="feat"><div class="ico">📊</div><h3 data-t="f4t"></h3><p data-t="f4d"></p></div>
+    <div class="feat"><div class="ico">🔔</div><h3 data-t="f5t"></h3><p data-t="f5d"></p></div>
+    <div class="feat"><div class="ico">🔒</div><h3 data-t="f6t"></h3><p data-t="f6d"></p></div>
+  </div>
 
-  <h2>Sauvegardes</h2>
-  <ul>
-    <li><strong>Sauvegarde manuelle :</strong> tu peux exporter un fichier de sauvegarde ou un PDF. Le fichier est enregistré là où tu le choisis.</li>
-    <li><strong>Sauvegarde WebDAV (facultative) :</strong> si tu la configures, tes données sont envoyées uniquement vers le serveur que <em>tu</em> indiques. L'adresse et les identifiants restent sur ton téléphone. Une adresse en HTTPS est recommandée.</li>
-    <li><strong>Sauvegarde Android :</strong> si la sauvegarde de ton téléphone est activée, Android peut inclure les données de l'app dans ta propre sauvegarde Google. Cela dépend de tes réglages Android, pas de LomboQuest.</li>
-  </ul>
+  <p class="warn" data-t="warn"></p>
 
-  <h2>Autorisations</h2>
-  <ul>
-    <li><strong>Notifications :</strong> pour les rappels d'exercice et de pesée.</li>
-    <li><strong>Démarrage :</strong> pour reprogrammer les rappels après un redémarrage du téléphone.</li>
-    <li><strong>Internet :</strong> utilisé seulement pour la sauvegarde WebDAV que tu configures.</li>
-  </ul>
-
-  <h2>Liens externes</h2>
-  <p>Les boutons « Me soutenir » et « Contact » ouvrent ton navigateur ou ton application e-mail. Ce qui s'y passe relève alors de ces services.</p>
-
-  <h2>Supprimer tes données</h2>
-  <p>Utilise « Réinitialiser » dans les réglages, ou désinstalle l'application : toutes les données stockées sur le téléphone sont alors effacées.</p>
-
-  <h2>Avertissement santé</h2>
-  <p>LomboQuest ne remplace pas l'avis d'un médecin ou d'un kinésithérapeute.</p>
-
-  <h2>Contact</h2>
-  <p><a href="mailto:lomboquest.app@proton.me">lomboquest.app@proton.me</a></p>
-</section>
-
-<!-- ===================== ENGLISH ===================== -->
-<section class="lang" id="en" lang="en">
-  <p class="date">Last updated: October 28, 2026</p>
-  <h2>In short</h2>
-  <p>LomboQuest collects no data. No account, no ads, no trackers, no usage analytics. Everything you enter stays on your phone.</p>
-
-  <h2>Data stored on your phone</h2>
-  <ul>
-    <li>Your progress: completed exercises, XP, streak, trophies, quests.</li>
-    <li>Your pain log and weight tracking, if you use them.</li>
-    <li>Your settings: reminders, language, exercise list.</li>
-  </ul>
-  <p>This data is stored only inside the app, on your device. It is never sent to the developer or to any third party.</p>
-
-  <h2>Backups</h2>
-  <ul>
-    <li><strong>Manual backup:</strong> you can export a backup file or a PDF. The file is saved wherever you choose.</li>
-    <li><strong>WebDAV backup (optional):</strong> if you set it up, your data is sent only to the server <em>you</em> specify. The address and credentials stay on your phone. An HTTPS address is recommended.</li>
-    <li><strong>Android backup:</strong> if device backup is enabled on your phone, Android may include the app's data in your own Google backup. This depends on your Android settings, not on LomboQuest.</li>
-  </ul>
-
-  <h2>Permissions</h2>
-  <ul>
-    <li><strong>Notifications:</strong> for exercise and weigh-in reminders.</li>
-    <li><strong>Run at startup:</strong> to reschedule reminders after the phone restarts.</li>
-    <li><strong>Internet:</strong> used only for the WebDAV backup you configure.</li>
-  </ul>
-
-  <h2>External links</h2>
-  <p>The “Support me” and “Contact” buttons open your browser or email app. What happens there is governed by those services.</p>
-
-  <h2>Deleting your data</h2>
-  <p>Use “Reset” in the settings, or uninstall the app: all data stored on the phone is then erased.</p>
-
-  <h2>Health disclaimer</h2>
-  <p>LomboQuest does not replace the advice of a doctor or physiotherapist.</p>
-
-  <h2>Contact</h2>
-  <p><a href="mailto:lomboquest.app@proton.me">lomboquest.app@proton.me</a></p>
-</section>
-
-<!-- ===================== РУССКИЙ ===================== -->
-<section class="lang" id="ru" lang="ru">
-  <p class="date">Последнее обновление: 28 октября 2026 г.</p>
-  <h2>Коротко</h2>
-  <p>LomboQuest не собирает никаких данных. Нет аккаунта, рекламы, трекеров и статистики использования. Всё, что ты вводишь, остаётся на твоём телефоне.</p>
-
-  <h2>Данные на твоём телефоне</h2>
-  <ul>
-    <li>Твой прогресс: выполненные упражнения, XP, серия, трофеи, задания.</li>
-    <li>Дневник боли и учёт веса, если ты ими пользуешься.</li>
-    <li>Твои настройки: напоминания, язык, список упражнений.</li>
-  </ul>
-  <p>Эти данные хранятся только в приложении, на твоём устройстве. Они никогда не отправляются разработчику или третьим лицам.</p>
-
-  <h2>Резервные копии</h2>
-  <ul>
-    <li><strong>Ручная копия:</strong> ты можешь экспортировать файл резервной копии или PDF. Файл сохраняется туда, куда ты выберешь.</li>
-    <li><strong>Копия через WebDAV (необязательно):</strong> если ты её настроишь, данные отправляются только на сервер, который укажешь <em>ты</em>. Адрес и учётные данные остаются на телефоне. Рекомендуется адрес с HTTPS.</li>
-    <li><strong>Резервное копирование Android:</strong> если на телефоне включено резервное копирование, Android может включить данные приложения в твою собственную копию Google. Это зависит от настроек Android, а не от LomboQuest.</li>
-  </ul>
-
-  <h2>Разрешения</h2>
-  <ul>
-    <li><strong>Уведомления:</strong> для напоминаний об упражнениях и взвешивании.</li>
-    <li><strong>Запуск при включении:</strong> чтобы восстановить напоминания после перезагрузки телефона.</li>
-    <li><strong>Интернет:</strong> используется только для копии через WebDAV, которую ты настраиваешь.</li>
-  </ul>
-
-  <h2>Внешние ссылки</h2>
-  <p>Кнопки «Поддержать меня» и «Связаться» открывают браузер или почтовое приложение. Дальнейшее регулируется этими сервисами.</p>
-
-  <h2>Удаление данных</h2>
-  <p>Используй «Сбросить» в настройках или удали приложение: все данные на телефоне будут стёрты.</p>
-
-  <h2>Предупреждение о здоровье</h2>
-  <p>LomboQuest не заменяет консультацию врача или физиотерапевта.</p>
-
-  <h2>Контакт</h2>
-  <p><a href="mailto:lomboquest.app@proton.me">lomboquest.app@proton.me</a></p>
-</section>
-
-<!-- ===================== DEUTSCH ===================== -->
-<section class="lang" id="de" lang="de">
-  <p class="date">Letzte Aktualisierung: 28. Oktober 2026</p>
-  <h2>Kurz gesagt</h2>
-  <p>LomboQuest erhebt keine Daten. Kein Konto, keine Werbung, keine Tracker, keine Nutzungsstatistiken. Alles, was du eingibst, bleibt auf deinem Handy.</p>
-
-  <h2>Auf deinem Handy gespeicherte Daten</h2>
-  <ul>
-    <li>Dein Fortschritt: erledigte Übungen, XP, Serie, Trophäen, Quests.</li>
-    <li>Dein Schmerztagebuch und deine Gewichtskurve, falls du sie nutzt.</li>
-    <li>Deine Einstellungen: Erinnerungen, Sprache, Übungsliste.</li>
-  </ul>
-  <p>Diese Daten werden nur in der App auf deinem Gerät gespeichert. Sie werden nie an den Entwickler oder an Dritte gesendet.</p>
-
-  <h2>Sicherungen</h2>
-  <ul>
-    <li><strong>Manuelle Sicherung:</strong> Du kannst eine Sicherungsdatei oder ein PDF exportieren. Die Datei wird dort gespeichert, wo du es wählst.</li>
-    <li><strong>WebDAV-Sicherung (optional):</strong> Wenn du sie einrichtest, werden deine Daten nur an den Server gesendet, den <em>du</em> angibst. Adresse und Zugangsdaten bleiben auf deinem Handy. Eine HTTPS-Adresse wird empfohlen.</li>
-    <li><strong>Android-Sicherung:</strong> Wenn die Gerätesicherung aktiviert ist, kann Android die App-Daten in deine eigene Google-Sicherung aufnehmen. Das hängt von deinen Android-Einstellungen ab, nicht von LomboQuest.</li>
-  </ul>
-
-  <h2>Berechtigungen</h2>
-  <ul>
-    <li><strong>Benachrichtigungen:</strong> für Übungs- und Wiege-Erinnerungen.</li>
-    <li><strong>Beim Start ausführen:</strong> um Erinnerungen nach einem Neustart wieder einzuplanen.</li>
-    <li><strong>Internet:</strong> wird nur für die von dir eingerichtete WebDAV-Sicherung verwendet.</li>
-  </ul>
-
-  <h2>Externe Links</h2>
-  <p>Die Schaltflächen „Unterstütze mich“ und „Kontakt“ öffnen deinen Browser oder deine E-Mail-App. Was dort geschieht, unterliegt diesen Diensten.</p>
-
-  <h2>Deine Daten löschen</h2>
-  <p>Nutze „Zurücksetzen“ in den Einstellungen oder deinstalliere die App: Alle auf dem Handy gespeicherten Daten werden dann gelöscht.</p>
-
-  <h2>Gesundheitshinweis</h2>
-  <p>LomboQuest ersetzt nicht den Rat eines Arztes oder Physiotherapeuten.</p>
-
-  <h2>Kontakt</h2>
-  <p><a href="mailto:lomboquest.app@proton.me">lomboquest.app@proton.me</a></p>
-</section>
-</main>
+  <footer>
+    <a id="privacy" href="privacy.html" data-t="privacy"></a>
+    <a href="mailto:lomboquest.app@proton.me" data-t="contact"></a>
+    <a href="https://fr.tipeee.com/freyrstudio" rel="noopener" data-t="support"></a>
+    <span class="langs" data-t="langs"></span>
+    <span>© 2026 FreyrStudio</span>
+  </footer>
+</div>
 
 <script>
-  var langs = ["fr", "en", "ru", "de"];
-  function show(l) {
-    langs.forEach(function (x) {
-      document.getElementById(x).classList.toggle("on", x === l);
-      document.querySelector('nav button[data-l="' + x + '"]').setAttribute("aria-pressed", x === l);
-    });
-    document.documentElement.lang = l;
+var T = {
+  fr: {
+    tag: "Exercices doux pour le dos, en mode quête quotidienne.",
+    intro: "LomboQuest transforme tes exercices pour le bas du dos en petite aventure : quelques minutes par jour, de la motivation et des récompenses pour chaque séance.",
+    cta: "Bientôt sur Google Play", badge: "Gratuit · Sans pub · Sans compte", shots: "Aperçu",
+    f1t: "Exercices guidés", f1d: "Animations claires, chronomètre et séance guidée qui enchaîne tout pour toi.",
+    f2t: "La motivation d'un jeu", f2d: "XP, rangs, série de jours, quêtes quotidiennes et 60 trophées.",
+    f3t: "Journée difficile", f3d: "Une séance allégée pour les jours où ça tire.",
+    f4t: "Suivi simple", f4d: "Journal de douleur, calendrier, suivi du poids et export PDF pour ton médecin ou ton kiné.",
+    f5t: "Rappels et widgets", f5d: "Rappels à l'heure de ton choix et widgets en trois tailles.",
+    f6t: "Ta vie privée d'abord", f6d: "Aucun compte, aucun traceur : tes données restent sur ton téléphone.",
+    warn: "⚠️ LomboQuest ne remplace pas l'avis d'un médecin ou d'un kinésithérapeute.",
+    privacy: "Politique de confidentialité", contact: "Contact", support: "❤️ Me soutenir",
+    langs: "Disponible en français, anglais, allemand et russe."
+  },
+  en: {
+    tag: "Gentle back exercises, turned into a daily quest.",
+    intro: "LomboQuest turns your lower-back exercises into a small adventure: a few minutes a day, a boost of motivation and rewards for every session.",
+    cta: "Coming soon to Google Play", badge: "Free · No ads · No account", shots: "Preview",
+    f1t: "Guided exercises", f1d: "Clear animations, a timer and a guided session that chains everything for you.",
+    f2t: "The motivation of a game", f2d: "XP, ranks, daily streak, daily quests and 60 trophies.",
+    f3t: "Tough day", f3d: "A lighter session for the days when it hurts.",
+    f4t: "Simple tracking", f4d: "Pain log, calendar, weight tracking and PDF export for your doctor or physiotherapist.",
+    f5t: "Reminders and widgets", f5d: "Reminders at the time you choose and widgets in three sizes.",
+    f6t: "Your privacy comes first", f6d: "No account, no trackers: your data stays on your phone.",
+    warn: "⚠️ LomboQuest does not replace the advice of a doctor or physiotherapist.",
+    privacy: "Privacy policy", contact: "Contact", support: "❤️ Support me",
+    langs: "Available in English, French, German and Russian."
+  },
+  de: {
+    tag: "Sanfte Rückenübungen als tägliche Quest.",
+    intro: "LomboQuest verwandelt deine Übungen für den unteren Rücken in ein kleines Abenteuer: ein paar Minuten am Tag, Motivation und Belohnungen für jede Einheit.",
+    cta: "Bald bei Google Play", badge: "Kostenlos · Keine Werbung · Kein Konto", shots: "Einblicke",
+    f1t: "Geführte Übungen", f1d: "Klare Animationen, Timer und eine geführte Einheit, die alles für dich aneinanderreiht.",
+    f2t: "Die Motivation eines Spiels", f2d: "XP, Ränge, Tagesserie, tägliche Quests und 60 Trophäen.",
+    f3t: "Schwerer Tag", f3d: "Eine leichtere Einheit für Tage, an denen es zieht.",
+    f4t: "Einfaches Tracking", f4d: "Schmerztagebuch, Kalender, Gewichtskurve und PDF-Export für Arzt oder Physiotherapeuten.",
+    f5t: "Erinnerungen und Widgets", f5d: "Erinnerungen zur Uhrzeit deiner Wahl und Widgets in drei Größen.",
+    f6t: "Deine Privatsphäre zuerst", f6d: "Kein Konto, keine Tracker: Deine Daten bleiben auf deinem Handy.",
+    warn: "⚠️ LomboQuest ersetzt nicht den Rat eines Arztes oder Physiotherapeuten.",
+    privacy: "Datenschutzerklärung", contact: "Kontakt", support: "❤️ Unterstütze mich",
+    langs: "Verfügbar auf Deutsch, Englisch, Französisch und Russisch."
+  },
+  ru: {
+    tag: "Мягкие упражнения для спины в формате ежедневного квеста.",
+    intro: "LomboQuest превращает упражнения для поясницы в маленькое приключение: несколько минут в день, мотивация и награды за каждую тренировку.",
+    cta: "Скоро в Google Play", badge: "Бесплатно · Без рекламы · Без аккаунта", shots: "Скриншоты",
+    f1t: "Упражнения с подсказками", f1d: "Понятные анимации, таймер и тренировка, которая ведёт тебя от упражнения к упражнению.",
+    f2t: "Мотивация как в игре", f2d: "XP, ранги, серия дней, ежедневные задания и 60 трофеев.",
+    f3t: "Тяжёлый день", f3d: "Облегчённая тренировка для дней, когда спина ноет.",
+    f4t: "Простой учёт", f4d: "Дневник боли, календарь, учёт веса и экспорт в PDF для врача или физиотерапевта.",
+    f5t: "Напоминания и виджеты", f5d: "Напоминания в удобное время и виджеты трёх размеров.",
+    f6t: "Конфиденциальность прежде всего", f6d: "Без аккаунта и трекеров: твои данные остаются на телефоне.",
+    warn: "⚠️ LomboQuest не заменяет консультацию врача или физиотерапевта.",
+    privacy: "Политика конфиденциальности", contact: "Связаться", support: "❤️ Поддержать меня",
+    langs: "Доступно на французском, английском, немецком и русском."
   }
-  document.querySelectorAll("nav button").forEach(function (b) {
-    b.addEventListener("click", function () { show(b.dataset.l); history.replaceState(null, "", "#" + b.dataset.l); });
-  });
-  var h = location.hash.slice(1);
-  var nav = (navigator.language || "en").slice(0, 2).toLowerCase();
-  show(langs.indexOf(h) >= 0 ? h : (langs.indexOf(nav) >= 0 ? nav : "en"));
+};
+// Captures disponibles : fr, en, de (le russe affiche les captures anglaises)
+var IMG = { fr: "fr", en: "en", de: "de", ru: "en" };
+
+function show(l) {
+  var t = T[l];
+  document.documentElement.lang = l;
+  document.querySelectorAll("[data-t]").forEach(function (el) { el.textContent = t[el.dataset.t]; });
+  document.querySelectorAll(".top button").forEach(function (b) { b.setAttribute("aria-pressed", b.dataset.l === l); });
+  document.getElementById("privacy").href = "privacy.html#" + l;
+  var html = "";
+  for (var i = 1; i <= 7; i++) html += '<img loading="lazy" src="img/' + IMG[l] + '/' + i + '.webp" alt="' + t.shots + ' ' + i + '">';
+  document.getElementById("shots").innerHTML = html;
+}
+document.querySelectorAll(".top button").forEach(function (b) {
+  b.addEventListener("click", function () { show(b.dataset.l); history.replaceState(null, "", "#" + b.dataset.l); });
+});
+var h = location.hash.slice(1), nav = (navigator.language || "en").slice(0, 2).toLowerCase();
+show(T[h] ? h : (T[nav] ? nav : "en"));
 </script>
 </body>
 </html>
