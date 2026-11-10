@@ -12,7 +12,7 @@
 <p align="center">
   🌐 <a href="https://freyr-studio.github.io/lomboquest/">Site / Website</a> ·
   🔒 <a href="https://freyr-studio.github.io/lomboquest/privacy.html">Confidentialité / Privacy</a> ·
-  ✉️ <a href="mailto:lomboquest.app@proton.me">Contact</a> ·
+  ✉️ <a href="mailto:lomboquest@freyrworld.org">Contact</a> ·
   ❤️ <a href="https://fr.tipeee.com/freyrstudio">Me soutenir / Support me</a>
 </p>
 
